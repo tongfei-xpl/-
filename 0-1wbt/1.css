@@ -1,0 +1,93 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    /* background: ; */
+    background: linear-gradient(100deg, rgba(218, 218, 218,1) 5.736111111111111%,rgba(138, 138, 138,1) 96.29166666666666%)    ;
+    height: 1000vh;
+    /* height: 100%; */
+    display: flex;
+    align-items: center;
+    /* align-self: center; */
+    justify-content: center;
+    
+}
+.color{
+    width: 95%;
+    height: 995vh;
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: -2px 2px 5px rgba(13,13,13,0.3);
+    justify-content: center;
+    /* align-items: center; */
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    /* position: absolute; */
+    border-radius: 5px;
+}
+.color a{
+    position: relative;
+    display: flex;
+    height: 230px;
+    width: auto;
+    top: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.color a img{
+    /* left: 10px; */
+    top: 10px;
+    position: relative;
+    /* width: 50px; */
+    height: 230px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.div-p{
+    position: absolute;
+    /* display: flex; */
+    top: 250px;
+    font-family: '宋体';
+    justify-content: center;
+    /* width: 100%; */
+    /* justify-content: center; */
+}
+.p {
+    text-shadow: 2px 2px 5px rgba(35,35,35,0.7);
+    font-size: 40px;
+    font-family: '宋体';
+    justify-content: center;
+    /* top: 250px; */
+    display: flex;
+    /* position: absolute; */
+}
+.p2{
+    display: flex;
+    justify-content: center;
+    color: rgba(150,150,150,0.9);
+}
+.p3{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    text-shadow: 1px 1px 1px rgba(35,35,35,0.5);
+}
+.p4{
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
