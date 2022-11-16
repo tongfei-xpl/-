@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <title>1.登录栏</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-image: url('2316.jpg');
+            backdrop-filter: blur(0px);
+        }
+        .login{
+            width: 550px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background: linear-gradient(
+                to right bottom,
+                rgba(255,255,255,.7),
+                rgba(255,255,255,.5),
+                rgba(255,255,255,.4)
+            ); */
+            /* 使背景模糊化 */
+            backdrop-filter: blur(1px);
+            /* box-shadow: 0 0 20px #a29bfe; */
+            /* border-radius: 15px; */
+            text-shadow: 2px 2px 4px #555262;
+        }
+
+        .table{
+            font: 900 40px '';
+            text-align: center;
+            letter-spacing: 5px;
+            color: #3d3d3d;
+        }
+
+        .box{
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* .box input{
+            width: 400px;
+            height: 100%;
+            margin-bottom: 20px;
+            outline: none;
+            border: 0;
+            padding: 10px;
+            background-color: transparent;
+            border-bottom: 3px solid rgb(150, 150, 240);
+            font: 900 16px '';
+        } */
+
+        .go{
+            width: 400px;
+            text-align: center;
+            display: block;
+            height: 24px;
+            padding: 12px;
+            font: 900 20px '';
+            border-radius: 10px;
+            box-shadow: 0px 0px 6px rgba(35,35,35,0.3);
+            margin-top: 20px;
+            /* text-shadow: 0px 0px 8px rgba(0,0,0,0.4); */
+            color: #fff;
+            letter-spacing: 3px;
+            background-image: linear-gradient(to left,
+            #fd79a8,#a29bf6);
+            opacity: 0.9;
+        }
+        
+        video{
+            overflow: hidden;
+            background-size: cover;
+            /* width: 100%; */
+            height: 100%;
+            display: flex;
+            position: absolute;
+            z-index: -99;
+            opacity: 0.4;
+        }
+        .ondiv{
+            background-size: cover;
+            overflow: hidden;
+            width: 550px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(
+                to right bottom,
+                rgba(255,255,255,0.7),
+                rgba(255,255,255,0.5),
+                rgba(255,255,255,0.4)
+            );
+            /* 使背景模糊化 */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px #a29bfe;
+            border-radius: 15px;
+        }
+        #button{
+            position: absolute;
+            left: 10px;
+            /* display: flex; */
+            font-size: 30px;
+            color: rgba(68,68,68,1);
+            text-shadow: 2px 2px 5px rgba(25,25,25,0.6);
+            /* top: 5%; */
+            top: 5px;
+        }
+        #button1{
+            position: absolute;
+            left: 50px;
+            top: 5px;
+            font-size: 30px;
+            color: rgba(68,68,68,1);
+            text-shadow: 2px 2px 5px rgba(25,25,25,0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="ondiv">
+        <div class="login">
+
+            <div class="box">
+            
+                <p class="table">Login</p>
+                <br>
+                <!-- <input type="text" placeholder="账号"> -->
+                <!-- <input type="password" placeholder="密码"> -->
+                <br>
+                <a href="https://github.com/tongfei-xpl/-" class="go">GO</a>
+                <!-- <a href="#" class="go">GO</a> -->
+            </div>
+        </div>
+    
+        <video autoplay="autoplay" muted loop="loop" id="video">
+            <source src="398896912-1-192.mp4" type="video/mp4"/>
+        </video>
+        <div id="button">
+            <i class="fa fa-pause"></i>
+        </div>
+        <div id="button1">
+            <i class="fa fa-volume-off"></i>
+        </div>
+    </div>
+    <script>
+        var a = 1;
+        var b = 1;
+        var button = document.getElementById('button');
+        var video = document.getElementById('video');
+        document.getElementById('button').onclick=function(){
+            if(a==1){
+
+                video.pause();
+                a++;
+                button.querySelector('.fa').classList='fa fa-play';
+
+            }else{
+
+                video.play();
+                a=1;
+                button.querySelector('.fa').classList='fa fa-pause';
+
+            }
+        }
+        document.getElementById('button1').onclick=function(){
+            if(b==1){
+
+                video.muted = false;
+                b++;
+                button1.querySelector('.fa').classList='fa fa-volume-up';
+
+            }else{
+
+                video.muted = true;
+                b=1;
+                button1.querySelector('.fa').classList='fa fa-volume-off';
+
+            }
+        }
+
+    </script>
+</body>
+</html>
