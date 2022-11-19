@@ -304,7 +304,7 @@ body{
     position: absolute;
     top: 0;
     left: -45px;
-    height: 21px;
+    height: 45px;
     width: 150%;
     background-color: #aad6e1;
     transform: translateX(-100%) skew(40deg);
