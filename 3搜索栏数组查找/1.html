@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>全屏搜索栏</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+    <div id="app">
+    <input type="checkbox" id="search_btn" hidden>
+    <label class="search-btn" for="search_btn">
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </label>
+    <!-- 设置 @click 事件,也就是点击事件   关闭按钮 -->
+    <label class="close-btn" for="search_btn" @click="closebtn">
+        <i class="fa fa-close" aria-hidden="true"></i>
+    </label>
+    <div class="container">
+        <div class="search-box">
+            <!-- v-model 设置了一个名为 "input" 的动态值,并录入 input 标签的内容进行双向绑定 -->
+            <input class="input" type="text" placeholder="请输入.." v-model="input">
+            <!-- 设置 @click 事件,也就是点击事件   搜索按钮 -->
+            <i class="fa fa-search" aria-hidden="true" @click="home"></i>
+        </div>
+    </div>
+
+    <!-- 搜索栏部分 -->
+    <div class="on-a">
+
+
+        <div class="a" v-for="(item,i) in searchData">
+
+            <a :href="item.href">{{item.name}}</a>
+        
+        </div>
+
+
+        <br>
+    </div>
+
+    </div>
+    
+    <script src="vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                input:'',
+                // 可以在methods中用 this.input 调用
+                search:[
+                    {name:'1.开始栏', href:'https://github.com/tongfei-xpl/-/blob/main/index.html'},
+                    {name:'2.音乐播放器', href:'https://github.com/tongfei-xpl/-/tree/main/音乐播放器'},
+                    {name:'3.', href:'#'},
+                    {name:'4.', href:'#'},
+                    {name:'5.', href:'#'},
+                    {name:'6.', href:'#'},
+                    {name:'7.', href:'#'},
+                    {name:'8.', href:'#'},
+                    {name:'9.', href:'#'},
+                    {name:'10.', href:'#'},
+                    {name:'11.', href:'#'},
+                ]
+            },
+            methods:{
+                closebtn(){
+                    this.input=''
+                },
+                // input标签旁搜索按钮的点击事件:另外打开一个网页为 'https://github.com/tongfei-xpl/-'
+                home(){
+                    window.open('https://github.com/tongfei-xpl/-')
+                }
+            },
+            computed:{
+
+                // 设置名称 searchData 通过事件判断数组中所含的对象
+                searchData:function(item,index){
+                    return this.search.filter(item=>item.name.indexOf(this.input) != -1)
+                }
+            }
+        
+        
+        
+        })
+
+        
+
+    </script>
+
+
+
+</body>
+
+</html>
