@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>全屏搜索栏</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+    <div id="app">
+    <input type="checkbox" id="search_btn" hidden>
+    <label class="search-btn" for="search_btn">
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </label>
+    <!-- 设置 @click 事件,也就是点击事件   关闭按钮 -->
+    <label class="close-btn" for="search_btn" @click="closebtn">
+        <i class="fa fa-close" aria-hidden="true"></i>
+    </label>
+    <div class="container">
+        <div class="search-box">
+            <!-- v-model 设置了一个名为 "input" 的动态值,并录入 input 标签的内容进行双向绑定 -->
+            <input class="input" type="text" placeholder="请输入.." v-model="input">
+            <!-- 设置 @click 事件,也就是点击事件   搜索按钮 -->
+            <i class="fa fa-search" aria-hidden="true" @click="home"></i>
+        </div>
+    </div>
+
+    <!-- 搜索栏部分 -->
+    <div class="on-a">
+        <!-- v-show表示当 "" 里的值是 true 时显示,否则 display:none
+             用 includes 方法比较录入的 input 中的值是否匹配 '' 中的字符串
+             如果input中有 '' 的一部分,返回true   注意:必须是连接起来一致 -->
+        <div class="a" v-show="'1.开始栏'.includes(input) || input.includes('1.') || input.includes('开始')"><a href="https://github.com/tongfei-xpl/-/blob/main/index.html">1.开始栏</a></div>
+        <div class="a" v-show="'2.音乐播放器'.includes(input) || input.includes('2.') || input.includes('音乐') || input.includes('播放器')"><a href="https://github.com/tongfei-xpl/-/tree/main/音乐播放器">2.音乐播放器</a></div>
+        <div class="a" v-show="'3'.includes(input) || input.includes('3.')"><a href="#">3</a></div>
+        <div class="a" v-show="'4'.includes(input) || input.includes('4.')"><a href="#">4</a></div>
+        <div class="a" v-show="'5'.includes(input) || input.includes('5.')"><a href="#">5</a></div>
+        <div class="a" v-show="'6'.includes(input) || input.includes('6.')"><a href="#">6</a></div>
+        <div class="a" v-show="'7'.includes(input) || input.includes('7.')"><a href="#">7</a></div>
+        <div class="a" v-show="'8'.includes(input) || input.includes('8.')"><a href="#">8</a></div>
+        <div class="a" v-show="'9'.includes(input) || input.includes('9.')"><a href="#">9</a></div>
+        <div class="a" v-show="'10'.includes(input) || input.includes('10.')"><a href="#">10</a></div>
+        <div class="a" v-show="'11'.includes(input) || input.includes('11.')"><a href="#">11</a></div>
+        <br>
+    </div>
+
+    </div>
+    
+    <script src="vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                input:'',
+                // 可以在methods中用 this.input 调用
+            },
+            methods:{
+                // 关闭按钮的点击事件: this.input 值为 ''
+                closebtn(){
+                    this.input=''
+                },
+                // input标签旁搜索按钮的点击事件:另外打开一个网页为 'https://github.com/tongfei-xpl/-'
+                home(){
+                    window.open('https://github.com/tongfei-xpl/-')
+                }
+
+            },
+        
+        
+        
+        })
+
+        
+
+    </script>
+
+
+
+</body>
+
+</html>
