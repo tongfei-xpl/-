@@ -15,11 +15,44 @@ let play_pause=document.querySelector('.play-pause'),
     play_prev=document.querySelector('.play-prev'),
     play_next=document.querySelector('.play-next');
 
+
+var key = '';
+
+var nemedata = [];
+var urldata = [];
+var trackData = [];
+
+data.forEach(e=>{
+    key += `<div class="menu-div"><h4 id="o${e.id}">${e.name}</h4></div>`
+
+    nemedata.push(e.name)
+    urldata.push(e.url)
+    trackData.push('')
+})
+
+document.querySelector('.inmenu').innerHTML=`<br>${key}<br>`
+
+data.forEach(e=>{
+    document.getElementById(`o${e.id}`).onclick=function(){
+        cur_index=e.id;
+        selectTrack(-1);
+    }
+})
+
+
+
+
 // 专辑名数组
-let albums0=['Warriors','世界は恋に落ちている','海市蜃楼','八重樱','ハレハレヤ','昭阳','Epoch Winter','bones','狂々撫子','Cyberange','室内系的TrackMaker','恋愛サーキュレーション','Iron Lotus','ピルグリム','Alize','达拉崩吧'];
-let albums=['http://music.163.com/song/media/outer/url?id=1832581866.mp3','http://music.163.com/song/media/outer/url?id=424496995.mp3','https://cw-sycdn.kuwo.cn/38228368fccf7dc4902661785d182138/63576db2/resource/n1/75/98/2369598765','http://music.163.com/song/media/outer/url?id=437250669.mp3','http://music.163.com/song/media/outer/url?id=1295189418.mp3','http://music.163.com/song/media/outer/url?id=1922867184.mp3','http://music.163.com/song/media/outer/url?id=1984353064.mp3','http://music.163.com/song/media/outer/url?id=1992986866.mp3','http://music.163.com/song/media/outer/url?id=409326722.mp3','http://music.163.com/song/media/outer/url?id=1375725396.mp3','http://music.163.com/song/media/outer/url?id=537787665.mp3','http://music.163.com/song/media/outer/url?id=579954.mp3','http://music.163.com/song/media/outer/url?id=1887467088.mp3','http://music.163.com/song/media/outer/url?id=551337741.mp3','http://music.163.com/song/media/outer/url?id=32341945.mp3','http://music.163.com/song/media/outer/url?id=476114873.mp3'];
+let albums0 = nemedata;
+let albums = urldata;
+
+// let albums0=['Warriors','世界は恋に落ちている','海市蜃楼','八重樱','ハレハレヤ','昭阳','Epoch Winter','bones','狂々撫子','Cyberange','室内系的TrackMaker','恋愛サーキュレーション','Iron Lotus','ピルグリム','Alize','达拉崩吧'];
+// let albums=['http://music.163.com/song/media/outer/url?id=1832581866.mp3','http://music.163.com/song/media/outer/url?id=424496995.mp3','https://cw-sycdn.kuwo.cn/38228368fccf7dc4902661785d182138/63576db2/resource/n1/75/98/2369598765','http://music.163.com/song/media/outer/url?id=437250669.mp3','http://music.163.com/song/media/outer/url?id=1295189418.mp3','http://music.163.com/song/media/outer/url?id=1922867184.mp3','http://music.163.com/song/media/outer/url?id=1984353064.mp3','http://music.163.com/song/media/outer/url?id=1992986866.mp3','http://music.163.com/song/media/outer/url?id=409326722.mp3','http://music.163.com/song/media/outer/url?id=1375725396.mp3','http://music.163.com/song/media/outer/url?id=537787665.mp3','http://music.163.com/song/media/outer/url?id=579954.mp3','http://music.163.com/song/media/outer/url?id=1887467088.mp3','http://music.163.com/song/media/outer/url?id=551337741.mp3','http://music.163.com/song/media/outer/url?id=32341945.mp3','http://music.163.com/song/media/outer/url?id=476114873.mp3'];
+
 // 歌曲信息数组
-let track_names=['','','','','','','','','','','','','','','','','','','','','',''];
+let track_names=trackData;
+
+// let track_names=['','','','','','','','','','','','','','','','','','','','','',''];
 
 // 定义变量
 let progress_t, //鼠标在进度条上悬停的位置
@@ -233,70 +266,70 @@ function selectTrack(flag){
     }
 }
 
-document.getElementById('o1').onclick=function(){
-    cur_index=1;
-    selectTrack(-1);
-}
-document.getElementById('o2').onclick=function(){
-    cur_index=2;
-    selectTrack(-1);
-}
-document.getElementById('o3').onclick=function(){
-    cur_index=3;
-    selectTrack(-1);
-}
-document.getElementById('o4').onclick=function(){
-    cur_index=4;
-    selectTrack(-1);
-}
-document.getElementById('o5').onclick=function(){
-    cur_index=5;
-    selectTrack(-1);
-}
-document.getElementById('o6').onclick=function(){
-    cur_index=6;
-    selectTrack(-1);
-}
-document.getElementById('o7').onclick=function(){
-    cur_index=7;
-    selectTrack(-1);
-}
-document.getElementById('o8').onclick=function(){
-    cur_index=8;
-    selectTrack(-1);
-}
-document.getElementById('o9').onclick=function(){
-    cur_index=9;
-    selectTrack(-1);
-}
-document.getElementById('o10').onclick=function(){
-    cur_index=10;
-    selectTrack(-1);
-}
-document.getElementById('o11').onclick=function(){
-    cur_index=11;
-    selectTrack(-1);
-}
-document.getElementById('o12').onclick=function(){
-    cur_index=12;
-    selectTrack(-1);
-}
-document.getElementById('o13').onclick=function(){
-    cur_index=13;
-    selectTrack(-1);
-}
-document.getElementById('o14').onclick=function(){
-    cur_index=14;
-    selectTrack(-1);
-}
-document.getElementById('o15').onclick=function(){
-    cur_index=15;
-    selectTrack(-1);
-}
-document.getElementById('o16').onclick=function(){
-    cur_index=16;
-    selectTrack(-1);
-}
+// document.getElementById('o1').onclick=function(){
+//     cur_index=1;
+//     selectTrack(-1);
+// }
+// document.getElementById('o2').onclick=function(){
+//     cur_index=2;
+//     selectTrack(-1);
+// }
+// document.getElementById('o3').onclick=function(){
+//     cur_index=3;
+//     selectTrack(-1);
+// }
+// document.getElementById('o4').onclick=function(){
+//     cur_index=4;
+//     selectTrack(-1);
+// }
+// document.getElementById('o5').onclick=function(){
+//     cur_index=5;
+//     selectTrack(-1);
+// }
+// document.getElementById('o6').onclick=function(){
+//     cur_index=6;
+//     selectTrack(-1);
+// }
+// document.getElementById('o7').onclick=function(){
+//     cur_index=7;
+//     selectTrack(-1);
+// }
+// document.getElementById('o8').onclick=function(){
+//     cur_index=8;
+//     selectTrack(-1);
+// }
+// document.getElementById('o9').onclick=function(){
+//     cur_index=9;
+//     selectTrack(-1);
+// }
+// document.getElementById('o10').onclick=function(){
+//     cur_index=10;
+//     selectTrack(-1);
+// }
+// document.getElementById('o11').onclick=function(){
+//     cur_index=11;
+//     selectTrack(-1);
+// }
+// document.getElementById('o12').onclick=function(){
+//     cur_index=12;
+//     selectTrack(-1);
+// }
+// document.getElementById('o13').onclick=function(){
+//     cur_index=13;
+//     selectTrack(-1);
+// }
+// document.getElementById('o14').onclick=function(){
+//     cur_index=14;
+//     selectTrack(-1);
+// }
+// document.getElementById('o15').onclick=function(){
+//     cur_index=15;
+//     selectTrack(-1);
+// }
+// document.getElementById('o16').onclick=function(){
+//     cur_index=16;
+//     selectTrack(-1);
+// }
 
 // 初始化播放器
 initPlayer();
