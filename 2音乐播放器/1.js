@@ -18,23 +18,29 @@ let play_pause=document.querySelector('.play-pause'),
 
 var key = '';
 
-var nemedata = [];
-var urldata = [];
+var nemedata = []; // 歌曲名称
+var urldata = []; // 歌曲链接
 var trackData = [];
 
+var number1 = []; // 歌曲ID的存放数组
+var number2 = 0; // 歌曲ID
+
 data.forEach(e=>{
-    key += `<div class="menu-div"><h4 id="o${e.id}">${e.name}</h4></div>`
+    key += `<div class="menu-div"><h4 id="o${++number2}">${e.name}</h4></div>`
 
     nemedata.push(e.name)
     urldata.push(e.url)
     trackData.push('')
+
+    number1.push(`${number2}`)
 })
+// console.log(number1);
 
 document.querySelector('.inmenu').innerHTML=`<br>${key}<br>`
 
-data.forEach(e=>{
-    document.getElementById(`o${e.id}`).onclick=function(){
-        cur_index=e.id;
+number1.forEach(e=>{
+    document.getElementById(`o${e}`).onclick=function(){
+        cur_index=e;
         selectTrack(-1);
     }
 })
@@ -336,25 +342,44 @@ initPlayer();
 
 
 
-document.getElementById('menu').style.visibility='hidden';
-// 设定变量a
-// var a = document.getElementById('menu').style.visibility='hidden';
 var a = 1;
+
+function ifa(){
+    a++;
+}
+function ifa1(){
+    a=1;
+}
+
+var func = debounce(ifa, 550)
+function debounce(fn, delay){
+    var timerId;
+    return function(){
+        clearTimeout(timerId)
+        timerId = setTimeout(fn, delay)
+    }
+}
+var func1 = debounce1(ifa1, 550)
+function debounce1(fn1, delay1){
+    var timerId1;
+    return function(){
+        clearTimeout(timerId1)
+        timerId1 = setTimeout(fn1, delay1)
+    }
+}
+
+document.getElementById('menu').style.visibility='hidden';
+
 // 判断a，1是否全等，并对a进行赋值，赋值后 a 不全等于 1 ，执行else 
 document.getElementById('menu-button').onclick=function(){
     if(a === 1){
         document.getElementById('menu').style.animationName='menu-box';
         document.getElementById('menu').style.visibility='visible';
-        // a++;
-        setTimeout(function(){a++;},550);
-        // console.log(a);
+        func()
         // 当a=1时，页面程显示状态
     }else{
-        setTimeout(function(){document.getElementById('menu').style.visibility='hidden';},480);
-        setTimeout(function(){a = 1;},550);
         document.getElementById('menu').style.animationName='box-menu';
-        // setTimeout(function(){ document.getElementById('menu').style.visibility='hidden';},500);
-        // setTimeout(function(){a = 1;},500)
-        // console.log(a);
+        setTimeout(function(){document.getElementById('menu').style.visibility='hidden';},480);
+        func1()
     }
 }
